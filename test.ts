@@ -1,3 +1,13 @@
+import { Application, Router } from "https://deno.land/x/oak@v12.6.1/mod.ts";
+
+const app = new Application();
+const router = new Router();
+
+app.use(router.routes());
+app.use(router.allowedMethods());
+console.log("Starting server...");
+await app.listen({ port: 8000 });
+
 const kv = await Deno.openKv();
 enum Rank {
   Bronze,
