@@ -6,7 +6,6 @@ const router = new Router();
 app.use(router.routes());
 app.use(router.allowedMethods());
 console.log("Starting server...");
-await app.listen({ port: 8000 });
 
 const kv = await Deno.openKv();
 enum Rank {
@@ -53,3 +52,5 @@ await kv.atomic()
   .commit();
 const newScore = (await kv.get(aliceScoreKey)).value;
 console.log("Alice's new score is: ", newScore);
+
+await app.listen({port:8000});
